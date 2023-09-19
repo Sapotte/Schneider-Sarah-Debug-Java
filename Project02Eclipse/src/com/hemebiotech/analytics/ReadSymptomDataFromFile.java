@@ -3,44 +3,46 @@ package com.hemebiotech.analytics;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
-	//	 @param filepath a full or partial path to file with symptom strings in it, one per line
-	@Override
-	public Map<String, Integer> GetSymptoms(String filepath) {
+    //	 @param filepath a full or partial path to file with symptom strings in it, one per line
+    @Override
+    public Map<String, Integer> GetSymptoms(String filepath) {
 
-		Map<String, Integer> result = new HashMap<>();
-		
-		if (filepath != null) {
-			try {
-				BufferedReader reader = new BufferedReader (new FileReader(filepath));
-				String line = reader.readLine();
+        TreeMap<String, Integer> result = new TreeMap<>();
 
-				while (line != null) {
-					System.out.println("symptom from file: " + line);
+        if (filepath != null) {
+//			count the symptoms
+            try {
+                BufferedReader reader = new BufferedReader(new FileReader(filepath));
+                String line = reader.readLine();
 
-					if(result.containsKey(line)) {
-						int symptomCount = result.get(line);
-						symptomCount++;
+                while (line != null) {
+                    System.out.println("symptom from file: " + line);
 
-						result.put(line, symptomCount);
-					} else {
-						result.put(line, 1);
-					}
+                    if (result.containsKey(line)) {
+                        int symptomCount = result.get(line);
+                        symptomCount++;
 
-					line = reader.readLine();	// get another symptom
-				}
-				reader.close();
+                        result.put(line, symptomCount);
+                    } else {
+                        result.put(line, 1);
+                    }
 
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		
-		return result;
-	}
+                    line = reader.readLine();    // get another symptom
+                }
+                reader.close();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        return result;
+    }
 
 }
