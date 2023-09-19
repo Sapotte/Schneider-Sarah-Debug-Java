@@ -6,12 +6,9 @@ import java.io.IOException;
 import java.util.Map;
 
 public class WriteSymptomDataFromFile implements ISYmptomWriter {
+    //    write down the symptoms and the number of times they appear in result.out
     @Override
     public void writeSymptoms(Map<String, Integer> symptoms) {
-
-        /*int headacheCount = symptoms.get("headaches");
-        int rashCount = symptoms.get("rashes");
-        int pupilCount = symptoms.get("pupils");*/
 
         try {
 
@@ -22,19 +19,11 @@ public class WriteSymptomDataFromFile implements ISYmptomWriter {
             for (Map.Entry<String, Integer> symptom : symptoms.entrySet()) {
                 writer.write(symptom.getKey() + ": " + symptom.getValue() + "\n");
             }
-
-            /*writer.write("headache: " + headacheCount + "\n");
-            writer.write("rash: " + rashCount + "\n");
-            writer.write("dilated pupils: " + pupilCount + "\n");*/
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
-
-
-
 
 
 }

@@ -9,8 +9,10 @@ import java.util.TreeMap;
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
     //	 @param filepath a full or partial path to file with symptom strings in it, one per line
+
+
     @Override
-    public Map<String, Integer> GetSymptoms(String filepath) {
+    public Map<String, Integer> GetSymptoms(String filepath) {  //   read the file and count the different symptoms
 
         TreeMap<String, Integer> result = new TreeMap<>();
 
