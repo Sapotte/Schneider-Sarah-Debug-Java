@@ -30,14 +30,14 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 
 				while (line != null) {
 					System.out.println("symptom from file: " + line);
-					if (line.equals("headache")) {
-						headacheCount++;
-					}
-					else if (line.equals("rash")) {
-						rashCount++;
-					}
-					else if (line.contains("pupils")) {
-						pupilCount++;
+
+					if(result.containsKey(line)) {
+						int symptomCount = result.get(line);
+						symptomCount++;
+
+						result.put(line, symptomCount);
+					} else {
+						result.put(line, 1);
 					}
 
 					line = reader.readLine();	// get another symptom
