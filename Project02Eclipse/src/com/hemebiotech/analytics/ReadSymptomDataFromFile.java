@@ -6,18 +6,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Simple brute force implementation
- *
- */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	//	 @param filepath a full or partial path to file with symptom strings in it, one per line
-
-	private static int headacheCount = 0;	// initialize to 0
-	private static int rashCount = 0;		// initialize to 0
-	private static int pupilCount = 0;		// initialize to 0
-
 	@Override
 	public Map<String, Integer> GetSymptoms(String filepath) {
 
@@ -43,9 +34,6 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 					line = reader.readLine();	// get another symptom
 				}
 				reader.close();
-				result.put("headaches", headacheCount);
-				result.put("rashes", rashCount);
-				result.put("dilated pupils", pupilCount);
 
 			} catch (IOException e) {
 				e.printStackTrace();
