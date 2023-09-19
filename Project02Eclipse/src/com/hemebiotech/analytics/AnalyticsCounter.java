@@ -12,7 +12,7 @@ public class AnalyticsCounter {
 			WriteSymptomDataFromFile writeSymptomDataFromFile = new WriteSymptomDataFromFile();
 
 			//get input
-			Map<String, Integer> symptoms = readSymptomDataFromFile.GetSymptoms("C:\\Users\\sarah\\DepotGit\\OpenClassrooms\\Schneider-Sarah-Debug-Java\\Project02Eclipse\\src\\com\\hemebiotech\\analytics\\symptoms.txt");
+			Map<String, Integer> symptoms = readSymptomDataFromFile.GetSymptoms("Project02Eclipse/src/symptoms.txt");
 
 //			write the output
 			writeSymptomDataFromFile.writeSymptoms(symptoms);

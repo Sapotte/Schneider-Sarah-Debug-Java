@@ -45,7 +45,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 				reader.close();
 				result.put("headaches", headacheCount);
 				result.put("rashes", rashCount);
-				result.put("pupils", pupilCount);
+				result.put("dilated pupils", pupilCount);
 
 			} catch (IOException e) {
 				e.printStackTrace();
