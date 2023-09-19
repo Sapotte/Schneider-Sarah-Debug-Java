@@ -6,9 +6,6 @@ import java.io.IOException;
 import java.util.Map;
 
 public class WriteSymptomDataFromFile implements ISYmptomWriter {
-//    @param filepath a full or partial path to file with symptom strings in it, one per line //
-        private String filepath;
-
     @Override
     public void writeSymptoms(Map<String, Integer> symptoms) {
 

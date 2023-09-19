@@ -28,15 +28,12 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 				BufferedReader reader = new BufferedReader (new FileReader(filepath));
 				String line = reader.readLine();
 
-				int i = 0;	// set i to 0
-
 				while (line != null) {
-					i++;	// increment i
 					System.out.println("symptom from file: " + line);
 					if (line.equals("headache")) {
 						headacheCount++;
 					}
-					else if (line.equals("rush")) {
+					else if (line.equals("rash")) {
 						rashCount++;
 					}
 					else if (line.contains("pupils")) {
