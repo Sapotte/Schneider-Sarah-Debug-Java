@@ -9,5 +9,5 @@ import java.util.TreeMap;
  * @params Map with the symptoms and their count
  */
 public interface ISymptomSorter {
-    Map<String, Integer> sortedSymptoms = new TreeMap<String, Integer>();
+    Map<String, Integer> sortedSymptoms = new TreeMap();
 }
