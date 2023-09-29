@@ -1,12 +1,11 @@
 package com.hemebiotech.analytics;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 
 /* Read a file and list the symptoms in a TreeMap
  * @param TreeMap to list the symptoms and their counter*/
 public interface ISymptomReader {
-    Map<String, Integer> listSymptomsCount = new HashMap<>();
+    ArrayList<String> listSymptoms = new ArrayList<>();
 
-    Map<String, Integer> GetSymptoms(String file);
+    ArrayList<String> getSymptoms(String file);
 }

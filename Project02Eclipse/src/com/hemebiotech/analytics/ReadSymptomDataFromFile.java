@@ -1,20 +1,18 @@
 package com.hemebiotech.analytics;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.Map;
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class ReadSymptomDataFromFile implements ISymptomReader {
-
     /**
-     * Read the file and put all the symptoms and their count in a Map
-     *
-     * @param filepath
-     * @return Map with the symptoms and their count
+     * Read the file and list the symptoms
+     * @param filepath path to the file to read
+     * @return listSymptoms array of the symptoms
      */
     @Override
-    public Map<String, Integer> GetSymptoms(String filepath) {
+    public ArrayList<String> getSymptoms(String filepath) {
 
         try {
             FileReader file = new FileReader(filepath);
@@ -23,21 +21,14 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
             String symptom = reader.readLine();
 
             while (symptom != null) {
-                if (listSymptomsCount.containsKey(symptom)) {
-                    int symptomCount = listSymptomsCount.get(symptom);
-                    symptomCount++;
-
-                    listSymptomsCount.put(symptom, symptomCount);
-                } else {
-                    listSymptomsCount.put(symptom, 1);
-                }
+                listSymptoms.add(symptom);
                 symptom = reader.readLine();
             }
             reader.close();
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            return listSymptomsCount;
         }
+
+        return listSymptoms;
     }
 }
