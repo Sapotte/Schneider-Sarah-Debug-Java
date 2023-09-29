@@ -8,8 +8,8 @@ public class CountSymptomFromArray implements ISymptomCounter {
     /**
      * Count the number of symptoms in an array
      *
-     * @param symptoms
-     * @return
+     * @param symptoms list of symptoms
+     * @return countedSymptoms map of all the symptoms and their count
      */
     @Override
     public Map<String, Integer> countSymptoms(ArrayList<String> symptoms) {
