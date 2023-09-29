@@ -12,12 +12,12 @@ public class SortSymptomFromMap implements ISymptomSorter {
      * @return sortedSymptoms symptoms sort in alphabetical order
      */
     public TreeMap<String, Integer> sortSymptoms(Map<String, Integer> countedSymptoms) {
-        Map<String, Integer> sortedSymptoms = new TreeMap<>();
+        TreeMap<String, Integer> sortedSymptoms = new TreeMap<>();
         try {
             sortedSymptoms.putAll(countedSymptoms);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return (TreeMap<String, Integer>) sortedSymptoms;
+        return sortedSymptoms;
     }
 }
