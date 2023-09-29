@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ReadSymptomDataFromFile implements ISymptomReader {
     /**
@@ -12,8 +13,8 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
      * @return listSymptoms array of the symptoms
      */
     @Override
-    public ArrayList<String> getSymptoms(String filepath) {
-
+    public List<String> getSymptoms(String filepath) {
+        List<String> listSymptoms = new ArrayList<>();
         try {
             FileReader file = new FileReader(filepath);
             BufferedReader reader = new BufferedReader(file);

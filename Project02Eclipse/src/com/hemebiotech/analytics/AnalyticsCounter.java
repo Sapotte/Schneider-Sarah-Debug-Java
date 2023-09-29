@@ -1,6 +1,6 @@
 package com.hemebiotech.analytics;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -10,13 +10,13 @@ public class AnalyticsCounter {
 
         try {
             ReadSymptomDataFromFile readSymptomDataFromFile = new ReadSymptomDataFromFile();
-            CountSymptomFromArray countSymptomFromArray = new CountSymptomFromArray();
+            CountSymptomFromList countSymptomFromList = new CountSymptomFromList();
             SortSymptomFromMap sortSymptomFromMap = new SortSymptomFromMap();
             WriteSymptomDataFromFile writeSymptomDataFromFile = new WriteSymptomDataFromFile();
 
 
-            ArrayList<String> symptoms = readSymptomDataFromFile.getSymptoms("Project02Eclipse/src/symptoms.txt");
-            Map<String, Integer> countedSymptoms = countSymptomFromArray.countSymptoms(symptoms);
+            List<String> symptoms = readSymptomDataFromFile.getSymptoms("Project02Eclipse/src/symptoms.txt");
+            Map<String, Integer> countedSymptoms = countSymptomFromList.countSymptoms(symptoms);
             TreeMap<String, Integer> sortedSymptoms = sortSymptomFromMap.sortSymptoms(countedSymptoms);
 
 
