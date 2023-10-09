@@ -5,18 +5,17 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
 
-public class WriteSymptomDataFromFile implements ISYmptomWriter {
+public class WriteDataFromFile implements IDatasWriter {
     /**
      * Write the final file
-     *
-     * @param symptoms
+     * @param symptoms all the symptoms to write down
      */
     @Override
-    public void writeSymptoms(Map<String, Integer> symptoms) {
+    public void writeDatas(Map<String, Integer> symptoms, String filepath) {
 
         try {
 
-            FileWriter fileWriter = new FileWriter("Project02Eclipse/src/result.out", false);
+            FileWriter fileWriter = new FileWriter(filepath, false);
 
             BufferedWriter writer = new BufferedWriter(fileWriter);
 
