@@ -16,7 +16,7 @@ public interface IDataReader {
     List<String> getDatas(String filePath) throws IOException;
 
     /**
-     * @param datas
+     * @param datas, list of datas
      * @return TreeMap with the datas and their occurrences
      * @throws NullPointerException
      */
