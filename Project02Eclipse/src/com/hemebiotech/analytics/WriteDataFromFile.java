@@ -14,7 +14,6 @@ public class WriteDataFromFile implements IDatasWriter {
     public void writeDatas(Map<String, Integer> symptoms, String filepath) {
 
         try {
-
             FileWriter fileWriter = new FileWriter(filepath, false);
 
             BufferedWriter writer = new BufferedWriter(fileWriter);
@@ -24,7 +23,7 @@ public class WriteDataFromFile implements IDatasWriter {
             }
             writer.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Ane error occurred writing the output :" + e);
         }
     }
 
