@@ -2,12 +2,12 @@ package com.hemebiotech.analytics;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Map;
 
 public class WriteDataFromFile implements IDatasWriter {
     /**
      * Write the final file
+     *
      * @param symptoms all the symptoms to write down
      */
     @Override
@@ -18,14 +18,16 @@ public class WriteDataFromFile implements IDatasWriter {
 
             BufferedWriter writer = new BufferedWriter(fileWriter);
 
-            for (Map.Entry<String, Integer> symptom : symptoms.entrySet()) {
-                writer.write(symptom.getKey() + ": " + symptom.getValue() + "\n");
+            if (symptoms.isEmpty()) {
+                throw new NullPointerException("The map is empty");
+            } else {
+                for (Map.Entry<String, Integer> symptom : symptoms.entrySet()) {
+                    writer.write(symptom.getKey() + ": " + symptom.getValue() + "\n");
+                }
             }
             writer.close();
-        } catch (IOException e) {
-            System.err.println("Ane error occurred writing the output :" + e);
+        } catch (Exception e) {
+            System.err.println("An error occurred writing the output :" + e.getMessage());
         }
     }
-
-
 }
