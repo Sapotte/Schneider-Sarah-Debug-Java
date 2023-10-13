@@ -13,7 +13,7 @@ public class AnalyticsApp {
         //    Get the symtpoms from symptoms.text
         List<String> symptomsList = reader.getDatas("Project02Eclipse/src/symptoms.txt");
 
-        //    Count the occurences and put them in a TreeMap
+        //    Count the occurrences and put them in a TreeMap
         Map<String, Integer> sortedSymptomsandOccurences = analyticsCounter.getDatasOccurrencesInAlphabeticOrder(symptomsList);
 
         //    Write the symptoms in result.out

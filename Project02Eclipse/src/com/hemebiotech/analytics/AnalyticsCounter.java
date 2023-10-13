@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class AnalyticsCounter implements IAnalyticsCounter {
+public class AnalyticsCounter {
 
     /**
      * Count the occurrences of each symptoms and sort in alphabetical order
@@ -12,7 +12,6 @@ public class AnalyticsCounter implements IAnalyticsCounter {
      * @return datasAndTheirOccurrences, a treemap with each symptoms and their occurrences
      * @throws NullPointerException if there is no datas in the list or the list is not found
      */
-    @Override
     public Map<String, Integer> getDatasOccurrencesInAlphabeticOrder(List<String> listDatas) throws NullPointerException {
         Map<String, Integer> datasAndTheirOccurrences = new TreeMap<>();
         try {
