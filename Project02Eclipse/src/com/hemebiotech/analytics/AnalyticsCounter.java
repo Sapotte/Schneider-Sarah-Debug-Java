@@ -1,43 +1,32 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class AnalyticsCounter {
-	private static int headacheCount = 0;	// initialize to 0
-	private static int rashCount = 0;		// initialize to 0
-	private static int pupilCount = 0;		// initialize to 0
-	
-	public static void main(String args[]) throws Exception {
-		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
-		String line = reader.readLine();
 
-		int i = 0;	// set i to 0
-		int headCount = 0;	// counts headaches
-		while (line != null) {
-			i++;	// increment i
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
-			}
-			else if (line.equals("rush")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
+    /**
+     * Count the occurrences of each symptoms and sort in alphabetical order
+     * @param listDatas, a list with the datas read from the file
+     * @return datasAndTheirOccurrences, a treemap with each symptoms and their occurrences
+     * @throws NullPointerException if there is no datas in the list or the list is not found
+     */
+    public Map<String, Integer> getDatasOccurrencesInAlphabeticOrder(List<String> listDatas) throws NullPointerException {
+        Map<String, Integer> datasAndTheirOccurrences = new TreeMap<>();
+        try {
+            if (!listDatas.isEmpty()) {
+                for (String data : listDatas) {
+                    datasAndTheirOccurrences.putIfAbsent(data, 0);
+                    datasAndTheirOccurrences.put(data, datasAndTheirOccurrences.get(data) + 1);
+                }
+            } else {
+                throw new NullPointerException("The list is empty");
+            }
 
-			line = reader.readLine();	// get another symptom
-		}
-		
-		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
-	}
+        } catch (NullPointerException e) {
+            System.err.println("An error occurred : " + e.getMessage());
+        }
+        return datasAndTheirOccurrences;
+    }
 }
